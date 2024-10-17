@@ -21,14 +21,43 @@ timer_task_config = {
 }
 
 
-# 任务组设置，该任务执行结束后会调用callback
+# 任务组设置，该任务执行结束后会调用callback，该任务记录不会被清除
 task_config = {
-    "getCpuList": {  # 键名为任务名，用于发起任务，可自定义
+    "getCpuDetailList": {  # 获取CPU详细信息列表
         'client_id': 'client_01',  # 指定执行命令的OC客户端id
         'commands': [  # 远程执行的命令列表
             "return ae.getCpuList(true)",
         ],
         # 命令执行后的回调函数，callback(results: list)，不需要则None
+        'callback': None,
+    },
+    "getCpuList": {  # 获取CPU简易信息列表
+        'client_id': 'client_01',
+        'commands': [
+            "return ae.getCpuList()",
+        ],
+        'callback': None,
+    },
+    "getAllItems": {  # 获取AE网络里所有物品信息
+        'client_id': 'client_01',
+        'commands': [
+            "return ae.getAllItems()",
+        ],
+        'callback': None,
+    },
+    "getAllCraftables": {  # 获取AE网络里所有可合成的物品信息
+        'client_id': 'client_01',
+        'commands': [
+            "return ae.getAllCraftables()",
+        ],
+        'callback': None,
+    },
+    "getAllCraftablesAndCpus": {  # 获取AE网络里所有可合成的物品信息和CPU信息
+        'client_id': 'client_01',
+        'commands': [
+            "return ae.getAllCraftables()",
+            "return ae.getCpuList()"
+        ],
         'callback': None,
     },
 }

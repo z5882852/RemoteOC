@@ -1,0 +1,17 @@
+html {
+    /* 浏览器默认字体大小16px,所以62.5% 实际为 10px，也就是说rem的单位开始以10px作为相对大小 */
+    font-size: 62.5%;
+    height: 155.9rem;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
